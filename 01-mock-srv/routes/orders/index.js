@@ -26,7 +26,7 @@ export default async function (fastify, opts) {
   fastify.get(
     "/:category",
     { websocket: true },
-    async ({ socket }, request) => {
+    async (socket, request) => {
       monitorMessages(socket);
       sendCurrentOrders(request.params.category, socket);
       for await (const order of fastify.realtimeOrders()) {
