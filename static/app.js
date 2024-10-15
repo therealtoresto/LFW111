@@ -1,5 +1,5 @@
-const API = "http://localhost:3000";
-const WS_API = "ws://localhost:3000";
+const API = "http://127.0.0.1:8080";
+const WS_API = "ws://127.0.0.1:8080";
 
 // Populate products
 const populateProducts = async (category, method = "GET", payload) =>

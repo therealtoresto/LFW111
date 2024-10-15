@@ -13,7 +13,7 @@ export const options = {};
 export default async function (fastify, opts) {
   // Place here your custom code!
 
-  // Register CORS  
+  // Register CORS
   fastify.register(cors, {});
   // Register Websocket
   fastify.register(websocket, {});

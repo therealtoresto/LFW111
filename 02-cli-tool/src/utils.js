@@ -1,7 +1,7 @@
 // Import GOT to make HTTP requests
 import { got } from "got";
 // Set the API URL
-const API = "http://localhost:3000";
+const API = "http://localhost:8080";
 // Set the categories
 const categories = ["confectionery", "electronics"];
 
