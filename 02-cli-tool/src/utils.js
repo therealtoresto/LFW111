@@ -1,5 +1,13 @@
 // Import GOT to make HTTP requests
 import { got } from "got";
+import {
+  displayTimestamp,
+  displayInfo,
+  displayAmount,
+  displaySuccess,
+  displayText,
+  displayID,
+} from './displays.js'
 // Set the API URL
 const API = "http://localhost:8080";
 // Set the categories
@@ -16,10 +24,15 @@ export const error = (msg) => {
 
 // Update the order with the given ID
 export async function update(id, amount) {
-  log(`Updating order ${id} with amount ${amount}`);
+  log(`${displayTimestamp()}`);
+  log(
+    `${displayInfo(`Updating Order`)} ${displayID(id)} ${displayText(
+      "with amount"
+    )} ${displayAmount(amount)}`
+  );
   try {
     if (isNaN(+amount)) {
-      log("Error: <AMOUNT> must be a number");
+      error("<AMOUNT> must be a number");
       process.exit(1);
     }
     // Use GOT to make a POST request to the API
@@ -27,10 +40,14 @@ export async function update(id, amount) {
       json: { amount: +amount },
     });
     // Log the result to the console
-    log(`Order ${id} updated with amount ${amount}`);
+    log(
+      `${displaySuccess()} ${displayText("Order")} ${displayID(
+       id
+      )} ${displayText("updated with amount")} ${displayAmount(amount)}`
+    );
   } catch (err) {
     // If there is an error, log it to the console and exit
-    error(err.message);
+    console.log(err.message);
     process.exit(1);
   }
 }
