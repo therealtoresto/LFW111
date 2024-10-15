@@ -1,5 +1,7 @@
 #!/usr/bin/env node
+
 import { Command } from "commander";
+import { main } from "../src/prompts.js";
 
 // Create a new Command Program
 const program = new Command();
@@ -49,3 +51,6 @@ program
 
 // Parse the arguments from process.argv
 program.parse();
+
+// Run the main function
+main(program);
